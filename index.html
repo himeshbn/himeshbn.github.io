@@ -1,253 +1,431 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Himesh BN | Cybersecurity Analyst</title>
-    <meta name="description" content="Portfolio of Himesh BN - Cybersecurity Analyst & IoT Engineer">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Himesh BN | Cybersecurity Engineer</title>
+    <meta name="description" content="Portfolio of Himesh BN - Cybersecurity & IoT Engineer">
     
-    <!-- Tailwind CSS for styling -->
+    <!-- Fonts: Inter (Closest free alternative to Apple's San Francisco) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for Icons -->
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F3F4F6; }
-        .glass-card { background: white; border: 1px solid #e5e7eb; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); }
-        .accent-blue { color: #346DE0; }
-        .bg-accent-blue { background-color: #346DE0; }
-        .profile-pic { border: 4px solid white; }
+        :root {
+            --bg-color: #000000;
+            --card-bg: #1d1d1f;
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --accent-blue: #2997ff;
+            --transition-curve: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Apple-style Typography */
+        h1, h2, h3 { letter-spacing: -0.02em; }
+        
+        .hero-text {
+            background: linear-gradient(180deg, #ffb6ff, #b344ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Sticky Nav with Blur */
+        .local-nav {
+            background: rgba(22, 22, 23, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.24);
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            transition: background-color 0.5s var(--transition-curve);
+        }
+
+        /* Apple Card Style */
+        .apple-card {
+            background-color: var(--card-bg);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: transform 0.5s var(--transition-curve);
+        }
+        
+        .apple-card:hover {
+            transform: scale(1.02);
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s var(--transition-curve);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: white;
+            border-radius: 980px;
+            padding: 8px 16px;
+            font-size: 12px;
+            font-weight: 400;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover { background-color: #0077ed; }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-blue);
+            border: 1px solid var(--accent-blue);
+            border-radius: 980px;
+            padding: 8px 16px;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        /* Gradient Text for Impact */
+        .text-gradient-gold {
+            background: linear-gradient(to right, #f5dca0, #dcb875);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
-<body class="text-gray-800">
+<body>
 
-    <!-- HEADER / HERO SECTION -->
-    <div class="w-full max-w-5xl mx-auto bg-white shadow-sm pb-8 mb-6 relative">
-        <!-- Cover Image -->
-        <div class="h-48 w-full bg-gradient-to-r from-slate-800 to-slate-900 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" alt="Cybersecurity Background" class="w-full h-full object-cover opacity-60">
+    <!-- LOCAL NAV (Sticky) -->
+    <nav class="local-nav w-full">
+        <div class="max-w-5xl mx-auto px-6 h-12 flex items-center justify-between">
+            <a href="#" class="text-[19px] font-semibold text-white tracking-tight">Himesh BN</a>
+            <div class="flex items-center gap-6 text-xs text-[#e8e8ed] opacity-90">
+                <a href="#experience" class="hover:text-blue-400 transition hidden sm:block">Experience</a>
+                <a href="#projects" class="hover:text-blue-400 transition hidden sm:block">Projects</a>
+                <a href="#skills" class="hover:text-blue-400 transition hidden sm:block">Skills</a>
+                <a href="mailto:himesh.bn024@gmail.com" class="btn-primary">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="min-h-[90vh] flex flex-col justify-center items-center text-center px-6 pt-20 pb-32">
+        <div class="reveal active">
+            <h2 class="text-[#86868b] text-xl md:text-2xl font-semibold mb-4">Cybersecurity & IoT Engineer</h2>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-6">
+                Defensive Security.<br>
+                <span class="text-[#6e6e73]">Offensive Mindset.</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-lg md:text-xl text-[#86868b] leading-relaxed mt-8">
+                I aspire to contribute to the security landscape by leveraging my skills and academic foundation in cybersecurity to solve real-world challenges.
+            </p>
+            <div class="mt-10 flex gap-4 justify-center">
+                <a href="#projects" class="text-[#2997ff] hover:underline text-lg flex items-center gap-1">
+                    View Projects <i class="fas fa-chevron-right text-xs"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/himeshbn/" target="_blank" class="text-[#2997ff] hover:underline text-lg flex items-center gap-1">
+                    LinkedIn Profile <i class="fas fa-chevron-right text-xs"></i>
+                </a>
+            </div>
         </div>
         
-        <!-- Profile Info -->
-        <div class="px-6 sm:px-10 relative">
-            <div class="flex flex-col sm:flex-row items-start sm:items-end -mt-12 sm:-mt-16 mb-4">
-                <!-- Profile Picture Placeholder -->
-                <img src="https://ui-avatars.com/api/?name=Himesh+BN&background=346DE0&color=fff&size=256" alt="Himesh BN" class="h-32 w-32 sm:h-40 sm:w-40 rounded-full object-cover profile-pic shadow-md z-10 bg-white">
-                
-                <div class="mt-4 sm:mt-0 sm:ml-6 flex-1">
-                    <h1 class="text-3xl font-bold text-gray-900">Himesh BN</h1>
-                    <p class="text-lg text-gray-600 font-medium">Cybersecurity Analyst & IoT Engineer</p>
-                    <p class="text-sm text-gray-500"><i class="fas fa-map-marker-alt mr-1"></i> Bengaluru, India</p>
-                </div>
-
-                <!-- Action Buttons -->
-                <div class="mt-4 sm:mt-0 flex gap-3">
-                    <a href="mailto:himesh.bn024@gmail.com" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md font-medium text-sm transition">
-                        <i class="fas fa-envelope mr-2"></i> Email
-                    </a>
-                    <a href="https://www.linkedin.com/in/himeshbn/" target="_blank" class="px-4 py-2 bg-accent-blue hover:bg-blue-700 text-white rounded-md font-medium text-sm transition">
-                        <i class="fab fa-linkedin mr-2"></i> LinkedIn
-                    </a>
-                </div>
-            </div>
+        <!-- Hero Image / Visual -->
+        <div class="mt-16 w-full max-w-4xl reveal">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" alt="Cybersecurity Abstract" class="rounded-[40px] opacity-80 shadow-2xl border border-[#333]">
         </div>
-    </div>
+    </section>
 
-    <!-- MAIN CONTENT GRID -->
-    <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+    <!-- EXPERIENCE SECTION (Timeline Style) -->
+    <section id="experience" class="bg-[#101010] py-32 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl md:text-6xl font-bold mb-20 text-center reveal">Professional Experience.</h2>
 
-        <!-- LEFT COLUMN (About & Skills) -->
-        <div class="md:col-span-1 space-y-6">
-            
-            <!-- About Me -->
-            <div class="glass-card rounded-lg p-6">
-                <h3 class="text-xl font-bold mb-4 border-b pb-2">About Me</h3>
-                <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                    I am a cybersecurity enthusiast with a strong foundation in both offensive and defensive security. I aim to solve complex challenges involving security assessments, threat hunting, and incident response to maintain data integrity.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full font-semibold">Cybersecurity</span>
-                    <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full font-semibold">IoT</span>
-                    <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full font-semibold">Blockchain</span>
-                </div>
-            </div>
-
-            <!-- Skills -->
-            <div class="glass-card rounded-lg p-6">
-                <h3 class="text-xl font-bold mb-4 border-b pb-2">Technical Skills</h3>
-                
-                <div class="mb-4">
-                    <h4 class="text-sm font-bold text-gray-800 mb-2">Languages</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded border">C/C++</span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded border">Python</span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded border">SQL</span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded border">Go</span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded border">Java</span>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <h4 class="text-sm font-bold text-gray-800 mb-2">Security Tools</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded border">Burp Suite</span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded border">Nmap</span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded border">Metasploit</span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded border">Wireshark</span>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="text-sm font-bold text-gray-800 mb-2">Cloud & Dev</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded border">Docker</span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded border">Git/GitHub</span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded border">AWS</span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded border">OCI</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Education -->
-            <div class="glass-card rounded-lg p-6">
-                <h3 class="text-xl font-bold mb-4 border-b pb-2">Education</h3>
-                <div class="mb-4">
-                    <h4 class="font-bold text-sm">B.E, Computer Science & Engineering</h4>
-                    <p class="text-xs text-gray-500">Bangalore Institute of Technology</p>
-                    <p class="text-xs text-gray-400">2022 - 2026 | CGPA: 8.56</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-sm">Pre-University</h4>
-                    <p class="text-xs text-gray-500">Sir M.V PU College</p>
-                    <p class="text-xs text-gray-400">Agg: 95.33%</p>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- RIGHT COLUMN (Experience & Projects) -->
-        <div class="md:col-span-2 space-y-6">
-
-            <!-- Experience Section -->
-            <div class="glass-card rounded-lg p-6">
-                <h3 class="text-xl font-bold mb-6 flex items-center">
-                    <i class="fas fa-briefcase text-blue-600 mr-3"></i> Experience
-                </h3>
-
+            <div class="space-y-8">
                 <!-- Job 1 -->
-                <div class="relative pl-8 border-l-2 border-gray-200 pb-8 last:pb-0">
-                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-blue-600 rounded-full"></div>
-                    <h4 class="text-lg font-bold text-gray-800">Cybersecurity Analyst Job Simulation</h4>
-                    <p class="text-sm text-blue-600 font-semibold mb-2">Tata Consultancy Services | Remote</p>
-                    <ul class="list-disc list-outside ml-4 text-sm text-gray-600 space-y-1">
-                        <li>Performed IAM gap analysis and permission mapping for regulatory compliance.</li>
-                        <li>Implemented RBAC and PoLP strategies to minimize attack surfaces.</li>
-                        <li>Simplified IAM concepts for stakeholders, boosting efficiency by 20%.</li>
+                <div class="apple-card p-10 md:p-14 reveal">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                        <div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-white">Cybersecurity Analyst Job Simulation</h3>
+                            <p class="text-xl text-[#86868b] mt-1">Tata Consultancy Services</p>
+                        </div>
+                        <span class="mt-2 md:mt-0 px-3 py-1 border border-[#424245] rounded-full text-xs text-[#86868b]">Sept 2025</span>
+                    </div>
+                    <ul class="space-y-4 text-[#d2d2d7] text-lg leading-relaxed list-disc pl-5 marker:text-[#86868b]">
+                        <li>Performed IAM gap analysis and permission mapping to ensure regulatory compliance.</li>
+                        <li>Implemented RBAC and PoLP strategies to minimize attack surface and privilege escalation.</li>
+                        <li>Simplified IAM concepts for stakeholders, boosting efficiency by 20% and securing project buy-in.</li>
                     </ul>
                 </div>
 
                 <!-- Job 2 -->
-                <div class="relative pl-8 border-l-2 border-gray-200">
-                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-blue-600 rounded-full"></div>
-                    <h4 class="text-lg font-bold text-gray-800">Cyber Security Job Simulation</h4>
-                    <p class="text-sm text-blue-600 font-semibold mb-2">Deloitte Australia | Remote</p>
-                    <ul class="list-disc list-outside ml-4 text-sm text-gray-600 space-y-1">
-                        <li>Analyzed 500+ web activity logs to identify 15+ potential security threats weekly.</li>
-                        <li>Assisted client during a breach following incident response steps.</li>
-                        <li>Answered key questions to identify suspicious user activity and protect client data.</li>
+                <div class="apple-card p-10 md:p-14 reveal">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                        <div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-white">Cyber Security Job Simulation</h3>
+                            <p class="text-xl text-[#86868b] mt-1">Deloitte Australia</p>
+                        </div>
+                        <span class="mt-2 md:mt-0 px-3 py-1 border border-[#424245] rounded-full text-xs text-[#86868b]">Sept 2025</span>
+                    </div>
+                    <ul class="space-y-4 text-[#d2d2d7] text-lg leading-relaxed list-disc pl-5 marker:text-[#86868b]">
+                        <li>Analyzed 500+ web activity logs to find suspicious user patterns, identifying 15+ potential security threats weekly.</li>
+                        <li>Assisted a client during a cyber security breach, helping them get back to normal by following incident response steps.</li>
+                        <li>Answered key questions to identify suspicious user activity, helping to protect client data.</li>
                     </ul>
                 </div>
             </div>
-
-            <!-- Projects Section -->
-            <div class="glass-card rounded-lg p-6">
-                <h3 class="text-xl font-bold mb-6 flex items-center">
-                    <i class="fas fa-code-branch text-blue-600 mr-3"></i> Projects
-                </h3>
-
-                <div class="grid grid-cols-1 gap-6">
-                    
-                    <!-- Project 1 -->
-                    <div class="border rounded-lg p-4 hover:shadow-md transition bg-gray-50">
-                        <div class="flex justify-between items-start">
-                            <h4 class="font-bold text-gray-800">HackTheProxy: Facial Recognition Attendance</h4>
-                            <a href="#" class="text-gray-400 hover:text-blue-600"><i class="fab fa-github"></i></a>
-                        </div>
-                        <p class="text-xs text-gray-500 mt-1 mb-3">Python, OpenCV, SHA-256</p>
-                        <ul class="text-sm text-gray-600 list-disc ml-4 space-y-1">
-                            <li>Designed secure attendance system reducing manual work by 70%.</li>
-                            <li>Built backend with SHA-256 encryption protecting 100+ accounts.</li>
-                            <li>Implemented liveness detection (blink analysis) to prevent spoofing.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="border rounded-lg p-4 hover:shadow-md transition bg-gray-50">
-                        <div class="flex justify-between items-start">
-                            <h4 class="font-bold text-gray-800">Lightweight Crypto Algorithms on ESP32</h4>
-                            <a href="#" class="text-gray-400 hover:text-blue-600"><i class="fab fa-github"></i></a>
-                        </div>
-                        <p class="text-xs text-gray-500 mt-1 mb-3">C++, Arduino, Python, IoT</p>
-                        <ul class="text-sm text-gray-600 list-disc ml-4 space-y-1">
-                            <li>Developed hardware setup on ESP32 DevKit to test crypto algorithms.</li>
-                            <li>Compared 8 algorithms using Arduino UNO/INA219 with 98% accuracy.</li>
-                            <li>Identified SPECK and LEA as most energy-efficient for IoT.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="border rounded-lg p-4 hover:shadow-md transition bg-gray-50">
-                        <div class="flex justify-between items-start">
-                            <h4 class="font-bold text-gray-800">Inventory Management Web App</h4>
-                            <a href="#" class="text-gray-400 hover:text-blue-600"><i class="fab fa-github"></i></a>
-                        </div>
-                        <p class="text-xs text-gray-500 mt-1 mb-3">PHP, MySQL, HTML5, CSS3</p>
-                        <ul class="text-sm text-gray-600 list-disc ml-4 space-y-1">
-                            <li>Managed 100+ product entries with secure logins and input validation.</li>
-                            <li>Prevented 75% of common web flaws via strong input checks.</li>
-                            <li>Ensured data integrity with secure MySQL database connections.</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Certifications -->
-            <div class="glass-card rounded-lg p-6">
-                <h3 class="text-xl font-bold mb-4 flex items-center">
-                    <i class="fas fa-certificate text-blue-600 mr-3"></i> Certifications
-                </h3>
-                <div class="space-y-3">
-                    <div class="flex justify-between items-center border-b pb-2">
-                        <span class="text-sm font-semibold text-gray-700">LFC108: Cybersecurity Essentials</span>
-                        <span class="text-xs text-gray-500">Linux Foundation</span>
-                    </div>
-                    <div class="flex justify-between items-center border-b pb-2">
-                        <span class="text-sm font-semibold text-gray-700">Intro to Critical Infrastructure Protection</span>
-                        <span class="text-xs text-gray-500">OPSWAT</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <span class="text-sm font-semibold text-gray-700">OCI 2025 Certified Foundations Associate</span>
-                        <span class="text-xs text-gray-500">Oracle</span>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </div>
+    </section>
+
+    <!-- PROJECTS SECTION (Bento Grid) -->
+    <section id="projects" class="py-32 px-6 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6 text-center reveal">Projects.</h2>
+            <p class="text-xl text-[#86868b] text-center mb-20 max-w-2xl mx-auto reveal">
+                A showcase of technical prowess in cryptography, web security, and biometric authentication.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Project 1: HackTheProxy -->
+                <div class="apple-card col-span-1 md:col-span-2 relative min-h-[500px] flex flex-col justify-end p-10 reveal group cursor-pointer">
+                    <!-- Background Image Placeholder -->
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-40 group-hover:opacity-30 transition-opacity duration-500" alt="Code">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+                    </div>
+                    
+                    <div class="relative z-10">
+                        <p class="text-[#2997ff] font-semibold mb-2">Python & Biometrics</p>
+                        <h3 class="text-3xl md:text-5xl font-bold text-white mb-4">HackTheProxy.</h3>
+                        <p class="text-xl text-[#d2d2d7] max-w-2xl mb-6">
+                            Facial Recognition-Based Attendance System. Designed a secure system reducing manual work by 70% using biometric checks & liveness detection. Built backend with SHA-256 encryption protecting 100+ user accounts.
+                        </p>
+                        <a href="#" class="btn-primary inline-block">View on GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Crypto -->
+                <div class="apple-card p-10 flex flex-col justify-between min-h-[400px] reveal">
+                    <div>
+                        <i class="fas fa-microchip text-4xl text-[#86868b] mb-6"></i>
+                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">Lightweight Cryptography on ESP32</h3>
+                        <p class="text-[#86868b] leading-relaxed">
+                            Developed hardware setup on ESP32 DevKit to test lightweight cryptographic algorithms. Compared 8 algorithms using Arduino UNO and INA219, measuring energy use & speed with 98% accuracy.
+                        </p>
+                    </div>
+                    <div class="mt-8">
+                        <span class="text-sm font-mono text-[#d2d2d7]">Identified SPECK & LEA as most efficient.</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: Web App -->
+                <div class="apple-card p-10 flex flex-col justify-between min-h-[400px] reveal">
+                    <div>
+                        <i class="fas fa-database text-4xl text-[#86868b] mb-6"></i>
+                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">Inventory Management Web App</h3>
+                        <p class="text-[#86868b] leading-relaxed">
+                            Created a web application managing 100+ product entries. Implemented strong input checks and secure form handling in PHP, preventing 75% of common web security flaws.
+                        </p>
+                    </div>
+                    <div class="mt-8 flex gap-2">
+                        <span class="px-3 py-1 bg-[#333] rounded-full text-xs text-white">PHP</span>
+                        <span class="px-3 py-1 bg-[#333] rounded-full text-xs text-white">MySQL</span>
+                        <span class="px-3 py-1 bg-[#333] rounded-full text-xs text-white">HTML5</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION (Tech Specs Style) -->
+    <section id="skills" class="py-32 px-6 bg-[#101010]">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16 text-white reveal">Technical Skills.</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-20">
+                
+                <div class="reveal">
+                    <h3 class="text-xl font-semibold text-white mb-4 border-b border-[#424245] pb-4">Programming & Scripting</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-[#d2d2d7] text-lg">C/C++</span>
+                        <span class="text-[#86868b]">•</span>
+                        <span class="text-[#d2d2d7] text-lg">Python</span>
+                        <span class="text-[#86868b]">•</span>
+                        <span class="text-[#d2d2d7] text-lg">SQL</span>
+                        <span class="text-[#86868b]">•</span>
+                        <span class="text-[#d2d2d7] text-lg">Go</span>
+                        <span class="text-[#86868b]">•</span>
+                        <span class="text-[#d2d2d7] text-lg">Java</span>
+                        <span class="text-[#86868b]">•</span>
+                        <span class="text-[#d2d2d7] text-lg">Bash</span>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <h3 class="text-xl font-semibold text-white mb-4 border-b border-[#424245] pb-4">Cybersecurity Tools</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-[#d2d2d7] text-lg">Burp Suite</span>
+                        <span class="text-[#86868b]">•</span>
+                        <span class="text-[#d2d2d7] text-lg">Nmap</span>
+                        <span class="text-[#86868b]">•</span>
+                        <span class="text-[#d2d2d7] text-lg">Metasploit</span>
+                        <span class="text-[#86868b]">•</span>
+                        <span class="text-[#d2d2d7] text-lg">Wireshark</span>
+                        <span class="text-[#86868b]">•</span>
+                        <span class="text-[#d2d2d7] text-lg">Linux</span>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <h3 class="text-xl font-semibold text-white mb-4 border-b border-[#424245] pb-4">Networking & Fundamentals</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-[#d2d2d7] text-lg">TCP/IP</span>
+                        <span class="text-[#86868b]">•</span>
+                        <span class="text-[#d2d2d7] text-lg">HTTP/HTTPS</span>
+                        <span class="text-[#86868b]">•</span>
+                        <span class="text-[#d2d2d7] text-lg">DNS</span>
+                        <span class="text-[#86868b]">•</span>
+                        <span class="text-[#d2d2d7] text-lg">OSI Model</span>
+                        <span class="text-[#86868b]">•</span>
+                        <span class="text-[#d2d2d7] text-lg">Data Structures</span>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <h3 class="text-xl font-semibold text-white mb-4 border-b border-[#424245] pb-4">Cloud & Dev Tools</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-[#d2d2d7] text-lg">Git/GitHub</span>
+                        <span class="text-[#86868b]">•</span>
+                        <span class="text-[#d2d2d7] text-lg">Docker</span>
+                        <span class="text-[#86868b]">•</span>
+                        <span class="text-[#d2d2d7] text-lg">AWS</span>
+                        <span class="text-[#86868b]">•</span>
+                        <span class="text-[#d2d2d7] text-lg">OCI</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS (Ribbon Style) -->
+
+    <!-- CERTIFICATIONS (Bento Badge Style) -->
+    <section class="py-32 px-6 bg-black border-t border-[#1d1d1f]">
+        <div class="max-w-5xl mx-auto reveal">
+            <h2 class="text-4xl font-bold text-white mb-16 text-center">Verified Certifications.</h2>
+            
+            <!-- Grid Layout -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+                <!-- Badge 1: Linux Foundation -->
+                <!-- Replace href="#" with your actual Credly verification link -->
+                <a href="#" target="_blank" class="apple-card p-8 flex flex-col items-center text-center group cursor-pointer hover:bg-[#252529] transition-colors duration-300">
+                    <div class="w-32 h-32 mb-6 relative transition-transform duration-500 group-hover:scale-110">
+                        <!-- Replace src with your actual badge image URL -->
+                        <img src="https://images.credly.com/size/680x680/images/e79f9317-b3f7-4b57-a859-f24d5f25fe36/blob" 
+                             alt="LFC108 Badge" 
+                             class="w-full h-full object-contain drop-shadow-2xl">
+                        <!-- Glow Effect -->
+                        <div class="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
+                    <h3 class="text-white font-semibold text-lg mb-1">Cybersecurity Essentials</h3>
+                    <p class="text-[#86868b] text-sm">Linux Foundation (LFC108)</p>
+                    <span class="mt-4 text-[#2997ff] text-xs flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                        Verify <i class="fas fa-external-link-alt"></i>
+                    </span>
+                </a>
+
+                <!-- Badge 2: OPSWAT -->
+                <a href="#" target="_blank" class="apple-card p-8 flex flex-col items-center text-center group cursor-pointer hover:bg-[#252529] transition-colors duration-300">
+                    <div class="w-32 h-32 mb-6 relative transition-transform duration-500 group-hover:scale-110">
+                        <!-- Placeholder for OPSWAT Badge - Replace with actual URL -->
+                        <img src="https://images.credly.com/size/680x680/images/f9f3c533-9b5a-47eb-8a3e-5734663116c0/image.png" 
+                             alt="OPSWAT ICIP Badge" 
+                             class="w-full h-full object-contain drop-shadow-2xl">
+                         <div class="absolute inset-0 bg-orange-500/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
+                    <h3 class="text-white font-semibold text-lg mb-1">Critical Infrastructure Protection</h3>
+                    <p class="text-[#86868b] text-sm">OPSWAT (ICIP)</p>
+                    <span class="mt-4 text-[#2997ff] text-xs flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                        Verify <i class="fas fa-external-link-alt"></i>
+                    </span>
+                </a>
+
+                <!-- Badge 3: Oracle -->
+                <a href="#" target="_blank" class="apple-card p-8 flex flex-col items-center text-center group cursor-pointer hover:bg-[#252529] transition-colors duration-300">
+                    <div class="w-32 h-32 mb-6 relative transition-transform duration-500 group-hover:scale-110">
+                        <!-- Placeholder for Oracle Badge - Replace with actual URL -->
+                        <img src="https://brm-workforce.oracle.com/pdf/certview/images/OCI25FNDCFAV1.png" 
+                             alt="Oracle OCI Badge" 
+                             class="w-full h-full object-contain drop-shadow-2xl">
+                         <div class="absolute inset-0 bg-red-500/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
+                    <h3 class="text-white font-semibold text-lg mb-1">OCI Foundations Associate</h3>
+                    <p class="text-[#86868b] text-sm">Oracle</p>
+                    <span class="mt-4 text-[#2997ff] text-xs flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                        Verify <i class="fas fa-external-link-alt"></i>
+                    </span>
+                </a>
+
+            </div>
+        </div>
+    </section>
 
     <!-- FOOTER -->
-    <footer class="bg-white border-t mt-12 py-8">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <p class="text-gray-500 text-sm">© 2026 Himesh BN. Built with Tailwind CSS.</p>
-            <div class="mt-4 space-x-4">
-                <a href="https://www.linkedin.com/in/himeshbn/" class="text-gray-400 hover:text-blue-600 transition"><i class="fab fa-linkedin text-xl"></i></a>
-                <a href="mailto:himesh.bn024@gmail.com" class="text-gray-400 hover:text-blue-600 transition"><i class="fas fa-envelope text-xl"></i></a>
+    <footer class="bg-[#101010] py-12 px-6 border-t border-[#333]">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-[#86868b] text-sm">Copyright © 2026 Himesh BN. All rights reserved.</p>
+                    <p class="text-[#86868b] text-xs mt-1">Bengaluru, India</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="https://www.linkedin.com/in/himeshbn/" class="text-[#d2d2d7] hover:text-white transition text-sm">LinkedIn</a>
+                    <a href="mailto:himesh.bn024@gmail.com" class="text-[#d2d2d7] hover:text-white transition text-sm">Email</a>
+                    <a href="https://github.com/himeshbn" class="text-[#d2d2d7] hover:text-white transition text-sm">GitHub</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- SCROLL ANIMATION SCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
